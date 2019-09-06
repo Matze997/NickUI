@@ -1,0 +1,9 @@
+name: NickUI
+version: 1.0
+author: MatzeLP
+api: 3.0.0, 4.0.0
+main: matze\nickui
+commands:
+  nick:
+    description: Nick Command
+    permission: nick.use
