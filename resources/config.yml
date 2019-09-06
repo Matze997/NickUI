@@ -22,6 +22,10 @@ random-nicks:
 #DEU: Erlaube einen Eigenen Nick zu benutzen
 
 custom-nick: true
+not-allow-custom-nicks:
+  - ServerTeam
+  - HateYou
+  - ""
 
 #######################################################
 ########################- UI -#########################
@@ -35,7 +39,7 @@ Main-Button-CustomNick: "§lCustom Nick"
 Main-Button-RandomNick: "§lRandom Nick"
 Main-Button-Close: "§lClose"
 
-CustomNick-Title: "$lCustom Nick"
+CustomNick-Title: "§lCustom Nick"
 
 #######################################################
 #####################- Messages -######################
@@ -45,5 +49,6 @@ CustomNick-Title: "$lCustom Nick"
 #DEU: Hier kannst du alle Narichten bearbeiten
 
 nick-set: "Your Nick was set to {nick}"
+not-allowed-nick: "This Nick is not allowed"
 
 
