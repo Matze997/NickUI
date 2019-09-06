@@ -1,0 +1,7 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Matze997/NickUI
+branches:
+- master
+projects:
+  NickUI:
+    path: ""
+...
