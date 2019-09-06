@@ -50,7 +50,7 @@ class nickui extends PluginBase implements Listener{
             }
         });
         $form->setTitle($this->getConfig()->get("Main-Title"));
-        $form->addButton($this->getConfig()->get("Main-Button-Close"), 1, "http://saltypixel.ga/textures/blocks/acacia_door_bottom.png");
+        $form->addButton($this->getConfig()->get("Main-Button-Close"));
         if($this->getConfig()->get("random-nick") === true){
             $form->addButton($this->getConfig()->get("Main-Button-RandomNick"));
         }
@@ -70,22 +70,25 @@ class nickui extends PluginBase implements Listener{
     }
 
     function openCustomNickUI($player){
-        $form = new CustomForm(function (Player $player, array $data){
-            $result = $data[0];
-            if($result === null){
-                return true;
+        $form = new CustomForm(function (Player $player, $data){
+            if($data[0] === null){
+               return true;
             }
-            if(!empty($result)){
-                $player->setDisplayName($result);
-                $player->setNameTag($result);
-                $message = $this->getConfig()->get("nick-set");
-                $player->sendMessage(str_replace("{nick}", $result, $message));
-            } else {
-                return true;
+            if($data[0] !== null){
+                $config = $this->getConfig();
+                $config = $config->getAll();
+                if(!in_array($data[0], $config["not-allow-custom-nicks"])){
+                    $player->setDisplayName($data[0]);
+                    $player->setNameTag($data[0]);
+                    $message = $this->getConfig()->get("nick-set");
+                    $player->sendMessage(str_replace("{nick}", $data[0], $message));
+                } else {
+                    $player->sendMessage($this->getConfig()->get("not-allowed-nick"));
+                }
             }
         });
         $form->setTitle($this->getConfig()->get("CustomNick-Title"));
-        $form->addInput("Nick", "Nick", $player->getName());
+        $form->addInput("Nick", "Nick", "Nick");
         $form->sendToPlayer($player);
         return $form;
     }
