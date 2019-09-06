@@ -1,5 +1,6 @@
 # NickUI
-NickUI Plugin for PocketMine
+NickUI Plugin for PocketMine. If you want more Ideas, please write me a messege :-D
+
 
 
 
