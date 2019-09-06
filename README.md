@@ -1,6 +1,8 @@
 # NickUI
 NickUI Plugin for PocketMine
 
+
+
 **Config**
 
 ```#ENG: Plugin and Config made by MatzeLP
